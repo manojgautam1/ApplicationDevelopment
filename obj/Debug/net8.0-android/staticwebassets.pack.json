@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\22067877ManojGautam.styles.css",
+      "PackagePath": "staticwebassets\\22067877ManojGautam.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\22067877ManojGautam\\22067877ManojGautam\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.22067877ManojGautam.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.build.22067877ManojGautam.props",
+      "PackagePath": "build\\22067877ManojGautam.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.buildMultiTargeting.22067877ManojGautam.props",
+      "PackagePath": "buildMultiTargeting\\22067877ManojGautam.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.buildTransitive.22067877ManojGautam.props",
+      "PackagePath": "buildTransitive\\22067877ManojGautam.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
