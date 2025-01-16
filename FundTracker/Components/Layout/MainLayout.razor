@@ -1,0 +1,18 @@
+﻿@using FundTracker.Model
+@inherits LayoutComponentBase
+
+<div class="page">
+    @if( _Status.UserStatus != null)
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
+    <main>
+        <CascadingValue Value="@_Status">
+            <article class="content px-4">
+                @Body
+            </article>
+        </CascadingValue>
+    </main>
+</div>
