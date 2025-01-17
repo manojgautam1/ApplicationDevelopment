@@ -1,6 +1,6 @@
-﻿using FundTracker.Abstraction;
+﻿using FundTracker.Services.Interface;
 using FundTracker.Model;
-using FundTracker.Services.Interface;
+using FundTracker.Model.Abstraction;
 
 namespace FundTracker.Services
 {
@@ -14,7 +14,6 @@ namespace FundTracker.Services
         public UserService()
         {
             _users = LoadUsers();
-
             if (!_users.Any())
             {
                 _users.Add(new User { UserName = SeedUsername, Password = SeedPassword });
@@ -26,12 +25,31 @@ namespace FundTracker.Services
         {
             if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.Password))
             {
-                return false;
+                return false; // Invalid input.
             }
 
-            //check if the username and password match any user in the list 
+            // Check if the username and password match any user in the list.
             return _users.Any(u => u.UserName == user.UserName && u.Password == user.Password);
-            //throw new NotImplementedException();
         }
+
+        public int getBalanceamt()
+        {
+            User user = _users.FirstOrDefault();
+            return user.BalanceAmt;
+        }
+
+        public bool updateBalanceAmt(int balanceamt)
+        {
+            if (_users == null)
+            {
+                throw new Exception("user not found.");
+            }
+            User user = _users.FirstOrDefault();
+            user.BalanceAmt = balanceamt;
+            SaveUsers(_users);
+            return true;
+
+        }
+
     }
 }

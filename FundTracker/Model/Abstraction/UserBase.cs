@@ -1,7 +1,7 @@
-﻿using FundTracker.Model;
-using System.Text.Json;
+﻿using System.Text.Json;
+using FundTracker.Model;
 
-namespace FundTracker.Abstraction
+namespace FundTracker.Model.Abstraction
 {
     public abstract class UserBase
     {

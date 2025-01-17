@@ -1,0 +1,37 @@
+﻿@page "/transaction"
+@using MudBlazor
+@using System.ComponentModel.DataAnnotations
+@using FundTracker.Model
+
+
+
+<MudText Typo="Typo.h3" Class="mud-width-full py-8 px-10" Style="@($"color:{Colors.Shades.Black}")">Transaction</MudText>
+<MudTable Items="@Filtered" Hover="true" ReadOnly="true">
+
+    <ToolBarContent>
+        <MudTextField @bind-Value="Search" Placeholder="Search Title" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+
+        <MudTh>Title</MudTh>
+        <MudTh>Amount</MudTh>
+        <MudTh>Type</MudTh>
+        <MudTh>Tags</MudTh>
+        <MudTh><MudTableSortLabel SortBy="new Func<Transaction, object>(x=>x.Date)">Date</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Title">@context.Title</MudTd>
+        <MudTd DataLabel="Amount">@context.Amount</MudTd>
+        <MudTd DataLabel="Type">@context.Type</MudTd>
+        <MudTd DataLabel="Tags">
+            @{
+                var tagname = TransactionServices.GettagsById(@context.tagId);
+                <span>@(tagname == null ? "Unknown" : tagname.Name)</span>
+            }
+        </MudTd>
+        <MudTd DataLabel="Date">@context.Date</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 20, 25 }" />
+    </PagerContent>
+</MudTable>

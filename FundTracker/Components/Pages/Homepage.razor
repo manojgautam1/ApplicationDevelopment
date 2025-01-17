@@ -1,0 +1,56 @@
+﻿@page "/home"
+@using FundTracker.Model
+@using MudBlazor
+@using System.Globalization
+
+<MudContainer Class="mt-16 px-8 " MaxWidth="MaxWidth.False">
+    <MudText Typo="Typo.h3" Class="mb-4">Dashboard</MudText>
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">
+                <MudText Typo="Typo.h5" Class="mb-4">Total Available Balance:@(Balanceamt())</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">
+                <MudText Typo="Typo.h6" Align="Align.Center">Total Number <br /> of Transactions:</MudText>
+                <MudText Typo="Typo.h6" Align="Align.Center"> @($"{totaltransaction}")</MudText>
+                
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4 d-flex align-center justify-center"
+                      Style="height: 250px; overflow: hidden;">
+
+                <MudChart ChartType="ChartType.Bar"
+                          ChartSeries="@series"
+                          XAxisLabels="@TransactionLabels.ToArray()"
+                          Width="100%"
+                          Height="200px"
+                          MaxY="50000"
+                          ShowXAxis="true"
+                          ShowYAxis="true"
+                          Style="height:100%; width:100%;" />
+            </MudPaper>
+        </MudItem>
+        
+                
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">
+                <MudText Typo="Typo.h6" Align="Align.Center">Lowest Inflow Amount: @($"{LowestInflow:n2}")</MudText>
+                <br />
+                <MudText Typo="Typo.h6" Align="Align.Center">Highest Inflow Amount: @($"{HighestInflow:n2}")</MudText>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;">
+                <MudText Typo="Typo.h6" Align="Align.Center">Lowest Outflow Amount: @($"{LowOutflow:n2}")</MudText>
+                <br />
+                <MudText Typo="Typo.h6" Align="Align.Center">Highest Ouflow Amount: @($"{HighOutflow:n2}")</MudText>
+            </MudPaper>
+        </MudItem>
+        
+    </MudGrid>
+</MudContainer>
+

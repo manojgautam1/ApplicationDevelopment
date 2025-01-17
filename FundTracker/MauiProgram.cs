@@ -22,6 +22,8 @@ namespace FundTracker
 #if DEBUG
             // service injecting
             builder.Services.AddScoped<IUser, UserService>();
+            builder.Services.AddScoped<ITransaction, TransactionServices>();
+            builder.Services.AddScoped<IDebtServices, DebtServices>();
             builder.Services.AddMudServices();
             builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();

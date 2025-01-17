@@ -1,8 +1,17 @@
 ﻿@using FundTracker.Model
 @inherits LayoutComponentBase
+@* Required *@
+<MudThemeProvider />
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
 
 <div class="page">
-    @if( _Status.UserStatus != null)
+    @if( _Status.LiveUser != null)
     {
         <div class="sidebar">
             <NavMenu />

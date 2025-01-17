@@ -1,5 +1,6 @@
+﻿using Microsoft.AspNetCore.Components;
 using FundTracker.Model;
-using Microsoft.AspNetCore.Components;
+using FundTracker.Services;
 
 namespace FundTracker.Components.Pages
 {
@@ -11,17 +12,16 @@ namespace FundTracker.Components.Pages
         private string ErrorMessage { get; set; } = string.Empty;
 
         [CascadingParameter]
-        private StateUser _Status { get; set; }
+        private UserState _LiveState { get; set; }
 
 
         private void HandleLogin()
         {
-            
-            _Status.UserStatus = Users;
+            _LiveState.LiveUser = Users;
             if (UserService.Login(Users))
             {
-                ErrorMessage = "User Login is successfull";
-                Nav.NavigateTo("/dashboard");
+                ErrorMessage = "User registered successfully!";
+                Nav.NavigateTo("/home");
             }
             else
             {

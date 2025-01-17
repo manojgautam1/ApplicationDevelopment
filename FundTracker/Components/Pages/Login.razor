@@ -1,42 +1,40 @@
 ﻿@page "/login"
 @using FundTracker.Model
 
-<h2>Login</h2>
+<div class="form-login d-flex justify-content-center align-items-center vh-100">
+    <form class="text-center bg-white p-4 rounded shadow" style="width: 100%; max-width: 400px;" @onsubmit="HandleLogin">
 
-<div class="form-login">
-    <form class="text-center" @onsubmit="HandleLogin">
-        <img class="mb-4" src="/appicon.png" alt="" height="72">
         <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
+        <!-- Username Input -->
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" @bind="Users.UserName" placeholder= "Username" />
-            <label for="floatingInput">Username</label>
+            <input type="text" class="form-control" id="username" @bind="Users.UserName" placeholder="Username" />
+            <label for="username">Username</label>
         </div>
 
         <!-- Password Input -->
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" @bind="Users.Password" placeholder="Password" />
-            <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="password" @bind="Users.Password" placeholder="Password" />
+            <label for="password">Password</label>
         </div>
+
+        <!-- Preferred Currency Dropdown -->
         <div class="form-floating mb-3">
-            <select class="form-control" @bind="Users.Currency">
-                <option value="USD">NPR - Nepali Rupee</option>
+            <select class="form-control" id="currency" @bind="Users.Currency">
+                <option value="NPR">NPR - Nepali Rupee</option>
                 <option value="USD">USD - US Dollar</option>
                 <option value="INR">INR - Indian Rupee</option>
             </select>
-            <label for="floatingCurrency">Preferred Currency</label>
+            <label for="currency">Preferred Currency</label>
         </div>
 
+        <!-- Error Message -->
         @if (!string.IsNullOrEmpty(ErrorMessage))
         {
             <div class="alert alert-danger">@ErrorMessage</div>
         }
-        <button class="btn btn-lg btn-primary">
-            Login
-        </button>
 
+        <!-- Login Button -->
+        <button type="submit" class="btn btn-lg btn-primary w-100">Login</button>
     </form>
 </div>
-
-
-

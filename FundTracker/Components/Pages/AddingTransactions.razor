@@ -1,0 +1,63 @@
+﻿@page "/add"
+@using MudBlazor
+@using System.ComponentModel.DataAnnotations
+@using FundTracker.Model
+
+<MudText Typo="Typo.h3" Class="mud-width-full" Style="@($"color:{Colors.Shades.Black}")">Make your own tags</MudText>
+<EditForm Model="@tag">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" Class="mt-3"
+                                  @bind-Value="tag.Name" For="@(() => tag.Name)" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddTag">Add</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+<br />
+<br />
+<MudText Typo="Typo.h3" Class="mud-width-full" Style="@($"color:{Colors.Shades.Black};")">Add Transactions</MudText>
+<EditForm Model="@transaction">
+    <DataAnnotationsValidator />
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Title" HelperText="" Class="mt-3"
+                                  @bind-Value="transaction.Title" For="@(() => transaction.Title)" />
+                    <MudTextField Label="Amount" Class="mt-3"
+                                  @bind-Value="transaction.Amount" For="@(() => transaction.Amount)" />
+                    <MudTextField Label="Type" HelperText="Transaction Type(Inflow,Outflow,Debt)" Class="mt-3"
+                                  @bind-Value="transaction.Type" For="@(() => transaction.Type)" />
+                    <MudTextField Label="Notes" HelperText="Add according to your needs." Class="mt-3"
+                                  @bind-Value="transaction.Note" For="@(() => transaction.Note)" />
+                    <MudSelect Class="mt-3" @bind-Value="transaction.tagId" Label="Select Tags" HelperText="Tags" Placeholder="Use Tags">
+                        @foreach (var customt in Tags)
+                        {
+                            <MudSelectItem Value=@(customt.Id)>@(customt.Name)</MudSelectItem>
+                        }
+                    </MudSelect>
+                    <MudDatePicker @bind-Date="transaction.Date" Label="Select a Date" Format="dd-MMM-yyyy" />
+                </MudCardContent>
+
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddIncome">Add</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+
+
+
+
+
+

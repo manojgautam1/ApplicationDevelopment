@@ -1,22 +1,24 @@
+﻿using Microsoft.AspNetCore.Components;
 using FundTracker.Model;
-using Microsoft.AspNetCore.Components;
 
 namespace FundTracker.Components.Pages
 {
-    public partial class Index : ComponentBase
+    public partial class Index :ComponentBase
     {
         [CascadingParameter]
-        private StateUser _Status { get; set; }
+        private UserState _LiveState { get; set; }
+
         protected override void OnInitialized()
         {
-            if (_Status.UserStatus == null)
+            if (_LiveState.LiveUser == null)
             {
                 Nav.NavigateTo("/login");
             }
             else
             {
-                Nav.NavigateTo("/Dashboard");
+                Nav.NavigateTo("/dashboard");
             }
         }
     }
+
 }
