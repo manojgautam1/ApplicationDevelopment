@@ -15,8 +15,9 @@ namespace FundTracker.Services
             _debts = GetAllDebts();
         }
 
-        public Debt AddDebt(Debt debt)
+        public bool AddDebt(Debt debt)
         {
+
             var borrow = new Transaction
             {
                 Id = Guid.NewGuid().ToString(),
@@ -39,9 +40,8 @@ namespace FundTracker.Services
                 DueDate = debt.DueDate,
                 TransactionId = borrow.Id
             });
-            _debts.Add(debt);
             SaveDebt(_debts);
-            return debt;
+            return true;
         }
         public List<Debt> Getdebts()
         {

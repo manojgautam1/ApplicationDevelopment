@@ -20,6 +20,11 @@ namespace FundTracker.Components.Pages
         }
         private void AddIncome()
         {
+            if (transaction.Amount < 0)
+            {
+                ErrorMessage = "Amount cannot be negative.";
+                return; // Stop execution if the value is negative
+            }
             if (TransactionServices.AddInflow(transaction))
             {
                 Nav.NavigateTo("/home");

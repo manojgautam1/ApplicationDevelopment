@@ -59,7 +59,7 @@ namespace FundTracker.Components.Pages
 
                 if (!Filtered.Any())
                 {
-                    ErrorMessage = "No Match Users Found";
+                    ErrorMessage = "No Match Transactions Found";
                 }
             }
             catch (Exception ex)

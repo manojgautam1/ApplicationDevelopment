@@ -2,9 +2,11 @@
 @using MudBlazor
 @using System.ComponentModel.DataAnnotations
 
+
 <MudText Typo="Typo.h3" Class="mud-width-full" Style="@($"color:{Colors.Shades.Black}")">Debt Addition</MudText>
 <EditForm Model="@debt">
     <DataAnnotationsValidator />
+
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
@@ -28,6 +30,7 @@
 <MudCard>
     <MudCardContent>
         <MudText Typo="Typo.h5" Align="Align.Center">Manage Debts</MudText>
+
 
         <MudTable Items="Debts" Dense="true" Hover="true" Bordered="true">
             <HeaderContent>

@@ -120,10 +120,7 @@ namespace FundTracker.Services
         
         public bool AddInflow(Transaction transaction)
         {
-            //if (dueDate < DateTime.Today)
-            //{
-            //    throw new Exception("Due date must be in the future.");
-            //}
+            
             if (transaction.Type.ToLower() == "inflow" || transaction.Type.ToLower() == "debt")
             {
                 int balance = _userService.getBalanceamt();
